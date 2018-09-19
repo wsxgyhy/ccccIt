@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Hero from '../../entity/Hero'
+import { HeroService } from '../../service/hero/hero.service'
 
 @Component({
   selector: 'app-hero-detail',
@@ -10,10 +11,15 @@ export class HeroDetailComponent implements OnInit {
   
   @Input() hero: Hero
 
-  constructor() { }
+  constructor(private heroService:HeroService) { }
 
   ngOnInit() {
     
+  }
+
+  save():void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => alert('修改成功'));
   }
 
 }

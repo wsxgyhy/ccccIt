@@ -6,5 +6,8 @@
             name is {{item.name}} , id is {{item.id}}
         </li>
     </ul>
+    <button (click)="add(heroName.value); heroName.value=''">
+        add
+    </button>
     <app-hero-detail [hero]="selectHero"></app-hero-detail>
 </div>
